@@ -9,9 +9,20 @@ package gt.edu.url.modulo.cliente;
 
 /**
  *
- * @author carlo
+ * @author Ismar Miranda
  */
 public class BuscarCliente {
 
+    public int id;
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
     
 }
