@@ -5,18 +5,13 @@
  */
 package gt.edu.url.modulo.cliente;
 
-import empresavfix.InterfazAcciones;
-import gt.edu.url.conexionBD.Conexion;
+
 
 /**
  *
  * @author carlo
  */
-public class BuscarCliente implements InterfazAcciones{
+public class BuscarCliente {
 
-    @Override
-    public void operacion(Conexion conexion, String codigo) {
-        
-    }
     
 }

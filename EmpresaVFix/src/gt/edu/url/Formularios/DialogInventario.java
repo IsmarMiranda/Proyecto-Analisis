@@ -75,7 +75,6 @@ public class DialogInventario extends javax.swing.JDialog {
         panelInventario.setLayout(null);
 
         jTableInventario.setFont(new java.awt.Font("Calibri", 1, 15)); // NOI18N
-        jTableInventario.setForeground(new java.awt.Color(0, 0, 0));
         jTableInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null},
@@ -255,7 +254,6 @@ public class DialogInventario extends javax.swing.JDialog {
         jLabel9.setBounds(110, 290, 90, 20);
 
         btnActualizar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnActualizar.setForeground(new java.awt.Color(0, 0, 0));
         btnActualizar.setText("ACTUALIZAR");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

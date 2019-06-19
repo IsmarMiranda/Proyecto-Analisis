@@ -5,19 +5,25 @@
  */
 package gt.edu.url.modulo.inventario;
 
-import empresavfix.InterfazAcciones;
-import gt.edu.url.conexionBD.Conexion;
+
 
 /**
  *
  * @author carlo
  */
-public class BuscarProducto implements InterfazAcciones {
+public class BuscarProducto{
     
-    
-    @Override
-    public void operacion(Conexion conexion, String codigo) {
-     
+    private String codigo;
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
+
+    public String getCodigo() {
+        return codigo;
+    }
+    
+    
+    
     
 }
