@@ -28,21 +28,251 @@ public class DialogClientes extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        txtCodig = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableClientes = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        txtFechaNacimiento = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        jlabelEstrella5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        btnIngresar = new javax.swing.JButton();
+        btnIngresar1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jlabelEstrella1 = new javax.swing.JLabel();
+        jlabelEstrella2 = new javax.swing.JLabel();
+        jlabelEstrella3 = new javax.swing.JLabel();
+        jlabelEstrella4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        rbStar5 = new javax.swing.JRadioButton();
+        rbstar1 = new javax.swing.JRadioButton();
+        rbStar2 = new javax.swing.JRadioButton();
+        rbsStar3 = new javax.swing.JRadioButton();
+        rbStar4 = new javax.swing.JRadioButton();
+        btnActualizar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
+        jPanel1.add(txtCodig);
+        txtCodig.setBounds(190, 90, 270, 30);
+
+        tableClientes.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        tableClientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "CODIGO", "NOMBRE", "TELEFONO", "FECHA NAC."
+            }
+        ));
+        tableClientes.setRowHeight(35);
+        jScrollPane1.setViewportView(tableClientes);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(60, 400, 930, 290);
+
+        jLabel1.setText("Código:");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(60, 90, 70, 30);
+        jPanel1.add(txtNombre);
+        txtNombre.setBounds(190, 130, 270, 30);
+        jPanel1.add(txtFechaNacimiento);
+        txtFechaNacimiento.setBounds(190, 210, 270, 30);
+
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtBuscar);
+        txtBuscar.setBounds(60, 340, 420, 40);
+        jPanel1.add(txtTelefono);
+        txtTelefono.setBounds(190, 170, 270, 30);
+
+        jlabelEstrella5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estrella.jpg"))); // NOI18N
+        jlabelEstrella5.setText("Fecha Nacimiento:");
+        jPanel1.add(jlabelEstrella5);
+        jlabelEstrella5.setBounds(890, 150, 100, 100);
+
+        jLabel2.setText("Nombre:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(60, 130, 80, 30);
+
+        jLabel3.setText("Teléfono:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(60, 170, 90, 30);
+
+        jLabel7.setText("INGRESAR NUEVO CLIENTE");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(150, 50, 170, 30);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(500, 340, 40, 40);
+
+        btnIngresar.setFont(new java.awt.Font("Dialog", 1, 17)); // NOI18N
+        btnIngresar.setForeground(new java.awt.Color(0, 0, 255));
+        btnIngresar.setText("INGRESAR");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnIngresar);
+        btnIngresar.setBounds(190, 260, 120, 50);
+
+        btnIngresar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/refresh.png"))); // NOI18N
+        btnIngresar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnIngresar1);
+        btnIngresar1.setBounds(930, 340, 60, 50);
+
+        jLabel6.setText("Fecha Nacimiento:");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(60, 210, 120, 30);
+
+        jlabelEstrella1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estrella.jpg"))); // NOI18N
+        jlabelEstrella1.setText("Fecha Nacimiento:");
+        jPanel1.add(jlabelEstrella1);
+        jlabelEstrella1.setBounds(490, 150, 100, 100);
+
+        jlabelEstrella2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estrella.jpg"))); // NOI18N
+        jlabelEstrella2.setText("Fecha Nacimiento:");
+        jPanel1.add(jlabelEstrella2);
+        jlabelEstrella2.setBounds(590, 150, 100, 100);
+
+        jlabelEstrella3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estrella.jpg"))); // NOI18N
+        jlabelEstrella3.setText("Fecha Nacimiento:");
+        jPanel1.add(jlabelEstrella3);
+        jlabelEstrella3.setBounds(690, 150, 100, 100);
+
+        jlabelEstrella4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estrella.jpg"))); // NOI18N
+        jlabelEstrella4.setText("Fecha Nacimiento:");
+        jPanel1.add(jlabelEstrella4);
+        jlabelEstrella4.setBounds(790, 150, 100, 100);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estrellaVacia.png"))); // NOI18N
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(480, 170, 510, 70);
+
+        rbStar5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbStar5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rbStar5);
+        rbStar5.setBounds(930, 110, 30, 28);
+
+        rbstar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbstar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rbstar1);
+        rbstar1.setBounds(530, 110, 40, 30);
+
+        rbStar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbStar2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rbStar2);
+        rbStar2.setBounds(630, 110, 30, 30);
+
+        rbsStar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbsStar3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rbsStar3);
+        rbsStar3.setBounds(730, 110, 30, 30);
+
+        rbStar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbStar4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rbStar4);
+        rbStar4.setBounds(830, 110, 30, 30);
+
+        btnActualizar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(0, 0, 0));
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnActualizar);
+        btnActualizar.setBounds(340, 260, 120, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1054, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
+       
+
+    }//GEN-LAST:event_txtBuscarKeyTyped
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        //INGRESAMOS A LA TABLA EL CLIENTE NUEVO
+       
+    }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void btnIngresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresar1ActionPerformed
+       
+    }//GEN-LAST:event_btnIngresar1ActionPerformed
+
+    private void rbStar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbStar5ActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_rbStar5ActionPerformed
+
+    private void rbstar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbstar1ActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_rbstar1ActionPerformed
+
+    private void rbStar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbStar2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_rbStar2ActionPerformed
+
+    private void rbsStar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbsStar3ActionPerformed
+        // TODO add your handling code here
+       
+    }//GEN-LAST:event_rbsStar3ActionPerformed
+
+    private void rbStar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbStar4ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_rbStar4ActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -87,5 +317,33 @@ public class DialogClientes extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnIngresar;
+    private javax.swing.JButton btnIngresar1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jlabelEstrella1;
+    private javax.swing.JLabel jlabelEstrella2;
+    private javax.swing.JLabel jlabelEstrella3;
+    private javax.swing.JLabel jlabelEstrella4;
+    private javax.swing.JLabel jlabelEstrella5;
+    private javax.swing.JRadioButton rbStar2;
+    private javax.swing.JRadioButton rbStar4;
+    private javax.swing.JRadioButton rbStar5;
+    private javax.swing.JRadioButton rbsStar3;
+    private javax.swing.JRadioButton rbstar1;
+    private javax.swing.JTable tableClientes;
+    private javax.swing.JTextField txtBuscar;
+    private javax.swing.JTextField txtCodig;
+    private javax.swing.JTextField txtFechaNacimiento;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
