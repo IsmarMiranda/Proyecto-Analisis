@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gt.edu.url.Formularios;
+package url.Formularios;
 
 /**
  *
@@ -172,7 +172,7 @@ public class DialogClientes extends javax.swing.JDialog {
             }
         });
         jPanel1.add(rbStar5);
-        rbStar5.setBounds(930, 110, 30, 28);
+        rbStar5.setBounds(930, 110, 30, 21);
 
         rbstar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +207,6 @@ public class DialogClientes extends javax.swing.JDialog {
         rbStar4.setBounds(830, 110, 30, 30);
 
         btnActualizar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnActualizar.setForeground(new java.awt.Color(0, 0, 0));
         btnActualizar.setText("ACTUALIZAR");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

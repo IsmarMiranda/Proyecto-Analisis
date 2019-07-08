@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gt.edu.url.modulo.cliente;
+package url.modulo.inventario;
 
 /**
  *
- * @author IsmarMiranda
+ * @author carlo
  */
-public class EnviarCorreo {
+public class BusquedaDeProductos {
     
-    CorreoElectronico correo;
     
 }

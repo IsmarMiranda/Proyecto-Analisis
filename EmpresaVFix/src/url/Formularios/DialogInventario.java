@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gt.edu.url.Formularios;
+package url.Formularios;
 
 /**
  *
@@ -68,7 +68,6 @@ public class DialogInventario extends javax.swing.JDialog {
         btnActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1631, 773));
         setMinimumSize(new java.awt.Dimension(1631, 773));
 
         panelInventario.setBackground(new java.awt.Color(255, 255, 255));
@@ -95,7 +94,7 @@ public class DialogInventario extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTableInventario);
 
         panelInventario.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 280, 1590, 340);
+        jScrollPane1.setBounds(10, 260, 1590, 340);
 
         txtBuscarNombre1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {

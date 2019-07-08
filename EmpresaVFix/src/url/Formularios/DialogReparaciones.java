@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gt.edu.url.Formularios;
+package url.Formularios;
 
 /**
  *
@@ -213,17 +213,17 @@ public class DialogReparaciones extends javax.swing.JDialog {
         sim.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         sim.setText("SIM");
         jPanel1.add(sim);
-        sim.setBounds(790, 320, 57, 28);
+        sim.setBounds(790, 320, 51, 29);
 
         microSD.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         microSD.setText("MICRO SD");
         jPanel1.add(microSD);
-        microSD.setBounds(930, 320, 100, 28);
+        microSD.setBounds(930, 320, 93, 29);
 
         bateria.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         bateria.setText("BATERÍA");
         jPanel1.add(bateria);
-        bateria.setBounds(790, 280, 89, 28);
+        bateria.setBounds(790, 280, 83, 29);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel20.setText("El presente terminal movil es recibido para presentar Servicio Técnico, VICFIX es responsable de su equipo 15 días despues de la ");
