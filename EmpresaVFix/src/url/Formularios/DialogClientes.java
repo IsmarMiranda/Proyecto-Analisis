@@ -56,6 +56,7 @@ public class DialogClientes extends javax.swing.JDialog {
         rbsStar3 = new javax.swing.JRadioButton();
         rbStar4 = new javax.swing.JRadioButton();
         btnActualizar = new javax.swing.JButton();
+        lblTextura = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -216,6 +217,11 @@ public class DialogClientes extends javax.swing.JDialog {
         jPanel1.add(btnActualizar);
         btnActualizar.setBounds(340, 260, 120, 50);
 
+        lblTextura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TEXTURA.jpg"))); // NOI18N
+        lblTextura.setText("jLabel4");
+        jPanel1.add(lblTextura);
+        lblTextura.setBounds(0, 0, 1050, 730);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -333,6 +339,7 @@ public class DialogClientes extends javax.swing.JDialog {
     private javax.swing.JLabel jlabelEstrella3;
     private javax.swing.JLabel jlabelEstrella4;
     private javax.swing.JLabel jlabelEstrella5;
+    private javax.swing.JLabel lblTextura;
     private javax.swing.JRadioButton rbStar2;
     private javax.swing.JRadioButton rbStar4;
     private javax.swing.JRadioButton rbStar5;
