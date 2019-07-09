@@ -72,22 +72,26 @@ public class DialogReparaciones extends javax.swing.JDialog {
         jPanel1.setLayout(null);
 
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/facebook.png"))); // NOI18N
         jLabel5.setText(" VicFix");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(770, 80, 100, 30);
 
         jLabel6.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("REPARACIÓN DE CELULARES");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(350, 40, 430, 50);
 
         jLabel7.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("14 ave. 0-46 Zona 3, Xela");
         jPanel1.add(jLabel7);
         jLabel7.setBounds(370, 80, 260, 40);
 
         jLabel8.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("7765-0692");
         jPanel1.add(jLabel8);
         jLabel8.setBounds(670, 86, 80, 20);
@@ -96,27 +100,28 @@ public class DialogReparaciones extends javax.swing.JDialog {
         jPanel1.add(jLabel9);
         jLabel9.setBounds(630, 80, 30, 30);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Vfix.jpeg"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/Vfix.jpeg"))); // NOI18N
         jPanel1.add(jLabel10);
         jLabel10.setBounds(70, 20, 180, 180);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lg.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/lg.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(630, 130, 80, 50);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/apple.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/apple.png"))); // NOI18N
         jPanel1.add(jLabel2);
         jLabel2.setBounds(270, 130, 60, 50);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/samsung.gif"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/samsung.gif"))); // NOI18N
         jPanel1.add(jLabel3);
         jLabel3.setBounds(350, 130, 160, 50);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huawei.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/huawei.jpg"))); // NOI18N
         jPanel1.add(jLabel4);
         jLabel4.setBounds(540, 130, 60, 50);
 
         jLabel11.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Quetgo.");
         jPanel1.add(jLabel11);
         jLabel11.setBounds(760, 140, 60, 40);
@@ -137,16 +142,19 @@ public class DialogReparaciones extends javax.swing.JDialog {
         txtMes.setBounds(930, 140, 80, 30);
 
         jLabel12.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Marca:");
         jPanel1.add(jLabel12);
         jLabel12.setBounds(90, 240, 60, 30);
 
         jLabel13.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Servicio Técnico:");
         jPanel1.add(jLabel13);
         jLabel13.setBounds(90, 280, 130, 30);
 
         jLabel14.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("IMEI de Terminal: ");
         jPanel1.add(jLabel14);
         jLabel14.setBounds(90, 360, 140, 30);
@@ -157,11 +165,13 @@ public class DialogReparaciones extends javax.swing.JDialog {
         jLabel15.setBounds(80, 550, 750, 30);
 
         jLabel16.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Nombre:");
         jPanel1.add(jLabel16);
         jLabel16.setBounds(90, 200, 60, 30);
 
         jLabel17.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Descripción de Terminal:");
         jPanel1.add(jLabel17);
         jLabel17.setBounds(90, 320, 180, 30);
@@ -196,11 +206,13 @@ public class DialogReparaciones extends javax.swing.JDialog {
         txtModelo.setBounds(830, 240, 280, 30);
 
         jLabel18.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Modelo:");
         jPanel1.add(jLabel18);
         jLabel18.setBounds(760, 240, 60, 30);
 
         jLabel19.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Tel:");
         jPanel1.add(jLabel19);
         jLabel19.setBounds(760, 200, 60, 30);
@@ -213,17 +225,17 @@ public class DialogReparaciones extends javax.swing.JDialog {
         sim.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         sim.setText("SIM");
         jPanel1.add(sim);
-        sim.setBounds(790, 320, 51, 29);
+        sim.setBounds(790, 320, 57, 28);
 
         microSD.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         microSD.setText("MICRO SD");
         jPanel1.add(microSD);
-        microSD.setBounds(930, 320, 93, 29);
+        microSD.setBounds(930, 320, 100, 28);
 
         bateria.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         bateria.setText("BATERÍA");
         jPanel1.add(bateria);
-        bateria.setBounds(790, 280, 83, 29);
+        bateria.setBounds(790, 280, 89, 28);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel20.setText("El presente terminal movil es recibido para presentar Servicio Técnico, VICFIX es responsable de su equipo 15 días despues de la ");
@@ -236,6 +248,7 @@ public class DialogReparaciones extends javax.swing.JDialog {
         jLabel21.setBounds(80, 520, 960, 30);
 
         jLabel22.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("Precio:");
         jPanel1.add(jLabel22);
         jLabel22.setBounds(90, 440, 80, 30);
@@ -246,6 +259,7 @@ public class DialogReparaciones extends javax.swing.JDialog {
         txtPrecio.setBounds(180, 440, 580, 30);
 
         jLabel23.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jLabel23.setText("Accesorios:");
         jPanel1.add(jLabel23);
         jLabel23.setBounds(90, 400, 80, 30);
