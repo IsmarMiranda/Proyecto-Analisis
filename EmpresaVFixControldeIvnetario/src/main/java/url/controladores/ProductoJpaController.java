@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package url.modulo.controladores;
+package url.controladores;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,16 +13,16 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import url.modulo.controladores.exceptions.NonexistentEntityException;
-import url.modulo.controladoresBD.Clientes;
+import url.controladores.exceptions.NonexistentEntityException;
+import url.modulo.controladoresBD.Producto;
 
 /**
  *
  * @author carlo
  */
-public class ClientesJpaController implements Serializable {
+public class ProductoJpaController implements Serializable {
 
-    public ClientesJpaController(EntityManagerFactory emf) {
+    public ProductoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -31,12 +31,12 @@ public class ClientesJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Clientes clientes) {
+    public void create(Producto producto) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(clientes);
+            em.persist(producto);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -45,19 +45,19 @@ public class ClientesJpaController implements Serializable {
         }
     }
 
-    public void edit(Clientes clientes) throws NonexistentEntityException, Exception {
+    public void edit(Producto producto) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            clientes = em.merge(clientes);
+            producto = em.merge(producto);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Integer id = clientes.getIdCliente();
-                if (findClientes(id) == null) {
-                    throw new NonexistentEntityException("The clientes with id " + id + " no longer exists.");
+                Integer id = producto.getIdProducto();
+                if (findProducto(id) == null) {
+                    throw new NonexistentEntityException("The producto with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -73,14 +73,14 @@ public class ClientesJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Clientes clientes;
+            Producto producto;
             try {
-                clientes = em.getReference(Clientes.class, id);
-                clientes.getIdCliente();
+                producto = em.getReference(Producto.class, id);
+                producto.getIdProducto();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The clientes with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The producto with id " + id + " no longer exists.", enfe);
             }
-            em.remove(clientes);
+            em.remove(producto);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -89,19 +89,19 @@ public class ClientesJpaController implements Serializable {
         }
     }
 
-    public List<Clientes> findClientesEntities() {
-        return findClientesEntities(true, -1, -1);
+    public List<Producto> findProductoEntities() {
+        return findProductoEntities(true, -1, -1);
     }
 
-    public List<Clientes> findClientesEntities(int maxResults, int firstResult) {
-        return findClientesEntities(false, maxResults, firstResult);
+    public List<Producto> findProductoEntities(int maxResults, int firstResult) {
+        return findProductoEntities(false, maxResults, firstResult);
     }
 
-    private List<Clientes> findClientesEntities(boolean all, int maxResults, int firstResult) {
+    private List<Producto> findProductoEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Clientes.class));
+            cq.select(cq.from(Producto.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -113,20 +113,20 @@ public class ClientesJpaController implements Serializable {
         }
     }
 
-    public Clientes findClientes(Integer id) {
+    public Producto findProducto(Integer id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Clientes.class, id);
+            return em.find(Producto.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getClientesCount() {
+    public int getProductoCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Clientes> rt = cq.from(Clientes.class);
+            Root<Producto> rt = cq.from(Producto.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();

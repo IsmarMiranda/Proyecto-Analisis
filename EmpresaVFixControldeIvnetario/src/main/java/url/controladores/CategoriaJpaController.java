@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package url.modulo.controladores;
+package url.controladores;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,16 +13,16 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import url.modulo.controladores.exceptions.NonexistentEntityException;
-import url.modulo.controladoresBD.Componentes;
+import url.controladores.exceptions.NonexistentEntityException;
+import url.modulo.controladoresBD.Categoria;
 
 /**
  *
  * @author carlo
  */
-public class ComponentesJpaController implements Serializable {
+public class CategoriaJpaController implements Serializable {
 
-    public ComponentesJpaController(EntityManagerFactory emf) {
+    public CategoriaJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -31,12 +31,12 @@ public class ComponentesJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Componentes componentes) {
+    public void create(Categoria categoria) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(componentes);
+            em.persist(categoria);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -45,19 +45,19 @@ public class ComponentesJpaController implements Serializable {
         }
     }
 
-    public void edit(Componentes componentes) throws NonexistentEntityException, Exception {
+    public void edit(Categoria categoria) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            componentes = em.merge(componentes);
+            categoria = em.merge(categoria);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Integer id = componentes.getIdComponente();
-                if (findComponentes(id) == null) {
-                    throw new NonexistentEntityException("The componentes with id " + id + " no longer exists.");
+                Integer id = categoria.getIdCategoria();
+                if (findCategoria(id) == null) {
+                    throw new NonexistentEntityException("The categoria with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -73,14 +73,14 @@ public class ComponentesJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Componentes componentes;
+            Categoria categoria;
             try {
-                componentes = em.getReference(Componentes.class, id);
-                componentes.getIdComponente();
+                categoria = em.getReference(Categoria.class, id);
+                categoria.getIdCategoria();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The componentes with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The categoria with id " + id + " no longer exists.", enfe);
             }
-            em.remove(componentes);
+            em.remove(categoria);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -89,19 +89,19 @@ public class ComponentesJpaController implements Serializable {
         }
     }
 
-    public List<Componentes> findComponentesEntities() {
-        return findComponentesEntities(true, -1, -1);
+    public List<Categoria> findCategoriaEntities() {
+        return findCategoriaEntities(true, -1, -1);
     }
 
-    public List<Componentes> findComponentesEntities(int maxResults, int firstResult) {
-        return findComponentesEntities(false, maxResults, firstResult);
+    public List<Categoria> findCategoriaEntities(int maxResults, int firstResult) {
+        return findCategoriaEntities(false, maxResults, firstResult);
     }
 
-    private List<Componentes> findComponentesEntities(boolean all, int maxResults, int firstResult) {
+    private List<Categoria> findCategoriaEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Componentes.class));
+            cq.select(cq.from(Categoria.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -113,20 +113,20 @@ public class ComponentesJpaController implements Serializable {
         }
     }
 
-    public Componentes findComponentes(Integer id) {
+    public Categoria findCategoria(Integer id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Componentes.class, id);
+            return em.find(Categoria.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getComponentesCount() {
+    public int getCategoriaCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Componentes> rt = cq.from(Componentes.class);
+            Root<Categoria> rt = cq.from(Categoria.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();

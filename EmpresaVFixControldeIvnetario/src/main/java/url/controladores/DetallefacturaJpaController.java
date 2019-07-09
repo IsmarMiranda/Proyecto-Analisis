@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package url.modulo.controladores;
+package url.controladores;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,16 +13,16 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import url.modulo.controladores.exceptions.NonexistentEntityException;
-import url.modulo.controladoresBD.Reparaciones;
+import url.controladores.exceptions.NonexistentEntityException;
+import url.modulo.controladoresBD.Detallefactura;
 
 /**
  *
  * @author carlo
  */
-public class ReparacionesJpaController implements Serializable {
+public class DetallefacturaJpaController implements Serializable {
 
-    public ReparacionesJpaController(EntityManagerFactory emf) {
+    public DetallefacturaJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -31,12 +31,12 @@ public class ReparacionesJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Reparaciones reparaciones) {
+    public void create(Detallefactura detallefactura) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(reparaciones);
+            em.persist(detallefactura);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -45,19 +45,19 @@ public class ReparacionesJpaController implements Serializable {
         }
     }
 
-    public void edit(Reparaciones reparaciones) throws NonexistentEntityException, Exception {
+    public void edit(Detallefactura detallefactura) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            reparaciones = em.merge(reparaciones);
+            detallefactura = em.merge(detallefactura);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Integer id = reparaciones.getIdReparacion();
-                if (findReparaciones(id) == null) {
-                    throw new NonexistentEntityException("The reparaciones with id " + id + " no longer exists.");
+                Integer id = detallefactura.getIdDetalleFactura();
+                if (findDetallefactura(id) == null) {
+                    throw new NonexistentEntityException("The detallefactura with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -73,14 +73,14 @@ public class ReparacionesJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Reparaciones reparaciones;
+            Detallefactura detallefactura;
             try {
-                reparaciones = em.getReference(Reparaciones.class, id);
-                reparaciones.getIdReparacion();
+                detallefactura = em.getReference(Detallefactura.class, id);
+                detallefactura.getIdDetalleFactura();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The reparaciones with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The detallefactura with id " + id + " no longer exists.", enfe);
             }
-            em.remove(reparaciones);
+            em.remove(detallefactura);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -89,19 +89,19 @@ public class ReparacionesJpaController implements Serializable {
         }
     }
 
-    public List<Reparaciones> findReparacionesEntities() {
-        return findReparacionesEntities(true, -1, -1);
+    public List<Detallefactura> findDetallefacturaEntities() {
+        return findDetallefacturaEntities(true, -1, -1);
     }
 
-    public List<Reparaciones> findReparacionesEntities(int maxResults, int firstResult) {
-        return findReparacionesEntities(false, maxResults, firstResult);
+    public List<Detallefactura> findDetallefacturaEntities(int maxResults, int firstResult) {
+        return findDetallefacturaEntities(false, maxResults, firstResult);
     }
 
-    private List<Reparaciones> findReparacionesEntities(boolean all, int maxResults, int firstResult) {
+    private List<Detallefactura> findDetallefacturaEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Reparaciones.class));
+            cq.select(cq.from(Detallefactura.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -113,20 +113,20 @@ public class ReparacionesJpaController implements Serializable {
         }
     }
 
-    public Reparaciones findReparaciones(Integer id) {
+    public Detallefactura findDetallefactura(Integer id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Reparaciones.class, id);
+            return em.find(Detallefactura.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getReparacionesCount() {
+    public int getDetallefacturaCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Reparaciones> rt = cq.from(Reparaciones.class);
+            Root<Detallefactura> rt = cq.from(Detallefactura.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
