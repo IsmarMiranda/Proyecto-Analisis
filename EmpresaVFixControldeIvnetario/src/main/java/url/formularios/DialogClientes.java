@@ -252,7 +252,14 @@ public class DialogClientes extends javax.swing.JDialog {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         //INGRESAMOS A LA TABLA EL CLIENTE NUEVO
-       
+        Clientes cliente = new Clientes();
+        ClientesJpaController actualizarCliente = new ClientesJpaController(null);
+        cliente.setCodigo(txtCodig.getText());
+        cliente.setNombre(txtNombre.getText());
+        cliente.setTelefono(txtTelefono.getText());
+        cliente.setCumpleanios(txtFechaNacimiento.getText());
+        cliente.setEstrellas(0);
+        actualizarCliente.create(cliente);
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnIngresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresar1ActionPerformed
