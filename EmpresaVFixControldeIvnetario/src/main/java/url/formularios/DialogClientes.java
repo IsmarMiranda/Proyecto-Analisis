@@ -5,6 +5,13 @@
  */
 package url.Formularios;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.persistence.EntityManager;
+import url.modulo.controladoresBD.Clientes;
+import url.controladores.ClientesJpaController;
+import url.conexionBD.Conexion;
+
 /**
  *
  * @author IsmarMiranda
@@ -277,6 +284,18 @@ public class DialogClientes extends javax.swing.JDialog {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         
+        try {
+        Clientes cliente = new Clientes();
+        ClientesJpaController actualizarCliente = new ClientesJpaController(null);
+        cliente.setCodigo(txtCodig.getText());
+        cliente.setNombre(txtNombre.getText());
+        cliente.setTelefono(txtTelefono.getText());
+        cliente.setCumpleanios(txtFechaNacimiento.getText());
+        cliente.setEstrellas(0);
+        actualizarCliente.edit(cliente);
+        } catch (Exception ex) {
+            Logger.getLogger(DialogClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     /**
