@@ -252,14 +252,16 @@ public class DialogClientes extends javax.swing.JDialog {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         //INGRESAMOS A LA TABLA EL CLIENTE NUEVO
+        EntityManager em = Conexion.obtenerConexion();
         Clientes cliente = new Clientes();
-        ClientesJpaController actualizarCliente = new ClientesJpaController(null);
+        ClientesJpaController actualizarCliente = new ClientesJpaController(em);
         cliente.setCodigo(txtCodig.getText());
         cliente.setNombre(txtNombre.getText());
         cliente.setTelefono(txtTelefono.getText());
         cliente.setCumpleanios(txtFechaNacimiento.getText());
         cliente.setEstrellas(0);
         actualizarCliente.create(cliente);
+        em.close();
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnIngresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresar1ActionPerformed
@@ -294,8 +296,9 @@ public class DialogClientes extends javax.swing.JDialog {
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         
         try {
+        EntityManager em =Conexion.obtenerConexion();
         Clientes cliente = new Clientes();
-        ClientesJpaController actualizarCliente = new ClientesJpaController(null);
+        ClientesJpaController actualizarCliente = new ClientesJpaController(em);
         cliente.setCodigo(txtCodig.getText());
         cliente.setNombre(txtNombre.getText());
         cliente.setTelefono(txtTelefono.getText());
