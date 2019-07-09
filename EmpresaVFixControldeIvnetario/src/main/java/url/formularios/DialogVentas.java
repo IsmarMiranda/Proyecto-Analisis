@@ -74,6 +74,7 @@ public class DialogVentas extends javax.swing.JDialog {
         jPanel1.setLayout(null);
 
         jLabel16.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Nombre:");
         jPanel1.add(jLabel16);
         jLabel16.setBounds(60, 60, 70, 30);
@@ -83,6 +84,7 @@ public class DialogVentas extends javax.swing.JDialog {
         txtNombre.setBounds(140, 60, 520, 30);
 
         jLabel12.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Dirección:");
         jPanel1.add(jLabel12);
         jLabel12.setBounds(60, 100, 70, 30);
@@ -115,6 +117,7 @@ public class DialogVentas extends javax.swing.JDialog {
         txtDia.setBounds(670, 60, 70, 30);
 
         jLabel8.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("NIT:");
         jPanel1.add(jLabel8);
         jLabel8.setBounds(550, 100, 40, 30);
@@ -124,21 +127,25 @@ public class DialogVentas extends javax.swing.JDialog {
         txtAnio.setBounds(830, 60, 70, 30);
 
         jLabel4.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Vendedor:");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(920, 60, 90, 23);
 
         jLabel3.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("MES");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(760, 30, 40, 23);
 
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("DÍA ");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(680, 30, 40, 23);
 
         jLabel6.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("AÑO");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(840, 30, 40, 23);
@@ -153,6 +160,7 @@ public class DialogVentas extends javax.swing.JDialog {
         comboBoxPrecio.setBounds(690, 170, 160, 40);
 
         jLabel7.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Contraseña:");
         jPanel1.add(jLabel7);
         jLabel7.setBounds(920, 100, 110, 23);
@@ -211,15 +219,18 @@ public class DialogVentas extends javax.swing.JDialog {
         tarjeta.setBounds(1070, 170, 90, 40);
 
         labelTotal.setFont(new java.awt.Font("Calibri", 1, 29)); // NOI18N
+        labelTotal.setForeground(new java.awt.Color(0, 0, 0));
         labelTotal.setText("0.00");
         jPanel1.add(labelTotal);
         labelTotal.setBounds(940, 660, 240, 40);
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("TOTAL:");
         jPanel1.add(jLabel9);
         jLabel9.setBounds(820, 660, 80, 30);
 
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
         jLabel10.setText("Nombre");
         jPanel1.add(jLabel10);
@@ -241,6 +252,7 @@ public class DialogVentas extends javax.swing.JDialog {
         jPanel1.add(txtBuscarCodigo);
         txtBuscarCodigo.setBounds(370, 170, 210, 30);
 
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
         jLabel15.setText("Codigo");
         jPanel1.add(jLabel15);
@@ -262,6 +274,7 @@ public class DialogVentas extends javax.swing.JDialog {
         jScrollPane2.setBounds(50, 420, 1210, 210);
 
         labelTotal1.setFont(new java.awt.Font("Calibri", 1, 29)); // NOI18N
+        labelTotal1.setForeground(new java.awt.Color(0, 0, 0));
         labelTotal1.setText("Q.");
         jPanel1.add(labelTotal1);
         labelTotal1.setBounds(900, 660, 40, 40);
@@ -288,7 +301,7 @@ public class DialogVentas extends javax.swing.JDialog {
         jPanel1.add(btnDescuento);
         btnDescuento.setBounds(610, 650, 160, 40);
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TEXTURA.jpg"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/TEXTURA.jpg"))); // NOI18N
         jLabel13.setMaximumSize(new java.awt.Dimension(1335, 750));
         jLabel13.setMinimumSize(new java.awt.Dimension(1335, 750));
         jLabel13.setPreferredSize(new java.awt.Dimension(1335, 750));

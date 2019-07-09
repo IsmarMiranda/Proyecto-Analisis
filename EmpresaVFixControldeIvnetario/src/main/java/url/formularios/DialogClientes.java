@@ -98,7 +98,7 @@ public class DialogClientes extends javax.swing.JDialog {
         jPanel1.add(txtTelefono);
         txtTelefono.setBounds(190, 170, 270, 30);
 
-        jlabelEstrella5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estrella.jpg"))); // NOI18N
+        jlabelEstrella5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/estrella.jpg"))); // NOI18N
         jlabelEstrella5.setText("Fecha Nacimiento:");
         jPanel1.add(jlabelEstrella5);
         jlabelEstrella5.setBounds(890, 150, 100, 100);
@@ -111,9 +111,11 @@ public class DialogClientes extends javax.swing.JDialog {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(60, 170, 90, 30);
 
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("INGRESAR NUEVO CLIENTE");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(150, 50, 170, 30);
+        jLabel7.setBounds(150, 50, 370, 30);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
         jPanel1.add(jLabel8);
@@ -130,7 +132,7 @@ public class DialogClientes extends javax.swing.JDialog {
         jPanel1.add(btnIngresar);
         btnIngresar.setBounds(190, 260, 120, 50);
 
-        btnIngresar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/refresh.png"))); // NOI18N
+        btnIngresar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/refresh.png"))); // NOI18N
         btnIngresar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresar1ActionPerformed(evt);
@@ -143,27 +145,27 @@ public class DialogClientes extends javax.swing.JDialog {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(60, 210, 120, 30);
 
-        jlabelEstrella1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estrella.jpg"))); // NOI18N
+        jlabelEstrella1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/estrella.jpg"))); // NOI18N
         jlabelEstrella1.setText("Fecha Nacimiento:");
         jPanel1.add(jlabelEstrella1);
         jlabelEstrella1.setBounds(490, 150, 100, 100);
 
-        jlabelEstrella2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estrella.jpg"))); // NOI18N
+        jlabelEstrella2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/estrella.jpg"))); // NOI18N
         jlabelEstrella2.setText("Fecha Nacimiento:");
         jPanel1.add(jlabelEstrella2);
         jlabelEstrella2.setBounds(590, 150, 100, 100);
 
-        jlabelEstrella3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estrella.jpg"))); // NOI18N
+        jlabelEstrella3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/estrella.jpg"))); // NOI18N
         jlabelEstrella3.setText("Fecha Nacimiento:");
         jPanel1.add(jlabelEstrella3);
         jlabelEstrella3.setBounds(690, 150, 100, 100);
 
-        jlabelEstrella4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estrella.jpg"))); // NOI18N
+        jlabelEstrella4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/estrella.jpg"))); // NOI18N
         jlabelEstrella4.setText("Fecha Nacimiento:");
         jPanel1.add(jlabelEstrella4);
         jlabelEstrella4.setBounds(790, 150, 100, 100);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estrellaVacia.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/estrellaVacia.png"))); // NOI18N
         jPanel1.add(jLabel5);
         jLabel5.setBounds(480, 170, 510, 70);
 
@@ -173,7 +175,7 @@ public class DialogClientes extends javax.swing.JDialog {
             }
         });
         jPanel1.add(rbStar5);
-        rbStar5.setBounds(930, 110, 30, 21);
+        rbStar5.setBounds(930, 110, 30, 28);
 
         rbstar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,7 +219,7 @@ public class DialogClientes extends javax.swing.JDialog {
         jPanel1.add(btnActualizar);
         btnActualizar.setBounds(340, 260, 120, 50);
 
-        lblTextura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TEXTURA.jpg"))); // NOI18N
+        lblTextura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/TEXTURA.jpg"))); // NOI18N
         lblTextura.setText("jLabel4");
         jPanel1.add(lblTextura);
         lblTextura.setBounds(0, 0, 1050, 730);
