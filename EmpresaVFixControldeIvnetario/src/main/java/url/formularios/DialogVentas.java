@@ -6,6 +6,7 @@
 package url.formularios;
 
 import javax.persistence.EntityManager;
+import javax.swing.ComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import url.controladores.DetallefacturaJpaController;
@@ -16,14 +17,13 @@ import url.modulo.ventas.AgregaraVenta;
 import url.modulo.ventas.CrearDetalle;
 import url.modulo.ventas.Facturar;
 import url.conexionBD.Conexion;
-import url.controladores.ProductoJpaController;
 import url.modulo.clientes.ValidarUsuario;
 import url.modulo.clientes.ValidarUsuarios;
-import url.modulo.controladoresBD.Producto;
 import url.modulo.ventas.ActualizarExistenciaProducto;
 import url.modulo.ventas.AgregarProducto;
 import url.modulo.ventas.DescontarProducto;
 import url.modulo.ventas.ObtenerCantidadExistenciaProducto;
+import url.modulo.controladoresBD.Usuarios;
 
 /**
  *
@@ -34,15 +34,18 @@ public class DialogVentas extends javax.swing.JDialog {
     private DefaultTableModel modeloFactura = new DefaultTableModel();
     private Facturar facturar = new Facturar();
     private int IdFactura=obtenerIdFactura();
+    private ComboBoxModel<Usuarios> combo;
     
 
     /**
      * Creates new form DialogVentas
      */
-    public DialogVentas(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public DialogVentas(ComboBoxModel modelo) {
+        
         initComponents();
         modeloFactura();
+        this.combo=modelo;
+        comboBoxVendedores1.setModel(this.combo);
     }
 
     /**
@@ -457,7 +460,7 @@ public class DialogVentas extends javax.swing.JDialog {
         
        EntityManager em = Conexion.obtenerConexion();
        AgregarProducto agregarProducto = new AgregarProducto();
-       ObtenerCantidadExistenciaProducto existencia = new ObtenerCantidadExistenciaProducto(em,jTableFactura.getValueAt(jTableFactura.getSelectedRow(),0).toString());
+       ObtenerCantidadExistenciaProducto existencia = new ObtenerCantidadExistenciaProducto(em,jTableFactura.getValueAt(jTableFactura.getSelectedRow(),1).toString());
        agregarProducto.actualizar(jTableFactura.getModel(), jTableFactura.getSelectedRow(),existencia.getExistencia());
        facturar.removerDetalle(jTableFactura.getValueAt(jTableFactura.getSelectedRow(),0).toString());
        facturar.calcularTotal();
@@ -478,9 +481,16 @@ public class DialogVentas extends javax.swing.JDialog {
     private void modeloFactura(){
         this.modeloFactura.addColumn("Cantidad");
         this.modeloFactura.addColumn("Codigo");
+        this.modeloFactura.addColumn("Categoria");
         this.modeloFactura.addColumn("Nombre");
-        this.modeloFactura.addColumn("Concepto");
-        this.modeloFactura.addColumn("total");
+        this.modeloFactura.addColumn("Existencia");
+        this.modeloFactura.addColumn("Color");
+        this.modeloFactura.addColumn("Modelo");
+        this.modeloFactura.addColumn("Marca");
+        this.modeloFactura.addColumn("Tipo");
+        this.modeloFactura.addColumn("Precio");
+        this.modeloFactura.addColumn("Descripcion");
+        this.modeloFactura.addColumn("Total");
         jTableFactura.setModel(modeloFactura);
     }
     /**
@@ -511,18 +521,7 @@ public class DialogVentas extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                DialogVentas dialog = new DialogVentas(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
+      
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -25,9 +25,12 @@ public class CrearDetalle {
         
         detalle.setCantidad(cantidad);
         detalle.setCodigo(modeloProducto.getValueAt(seleccion,1).toString());
-        detalle.setDescripcion(modeloProducto.getValueAt(seleccion,2).toString());
-        detalle.setTotal((double)modeloProducto.getValueAt(seleccion,3));
+        detalle.setDescripcion(modeloProducto.getValueAt(seleccion,2).toString()+"/"+modeloProducto.getValueAt(seleccion,3).toString()+
+        "/"+modeloProducto.getValueAt(seleccion,4).toString()+"/"+modeloProducto.getValueAt(seleccion,5).toString()+"/"+
+        modeloProducto.getValueAt(seleccion,6).toString()+"/"+modeloProducto.getValueAt(seleccion,7).toString());
+        detalle.setTotal((double)modeloProducto.getValueAt(seleccion,8)*cantidad);
         detalle.setFacturaID(idFactura);
+
     }
     
     public Detallefactura obtenerDetalle(){

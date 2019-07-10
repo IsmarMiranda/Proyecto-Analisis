@@ -31,6 +31,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Usuarios.findByContrasena", query = "SELECT u FROM Usuarios u WHERE u.contrasena = :contrasena"),
     @NamedQuery(name = "Usuarios.findByRol", query = "SELECT u FROM Usuarios u WHERE u.rol = :rol"),
     @NamedQuery(name = "Usuarios.findByImagen", query = "SELECT u FROM Usuarios u WHERE u.imagen = :imagen"),
+    @NamedQuery(name = "Usuarios.findByNombreUsuario", query = "SELECT u.nombre FROM Usuarios AS u"),
     @NamedQuery(name = "Usuarios.findByEliminado", query = "SELECT u FROM Usuarios u WHERE u.eliminado = :eliminado")})
 public class Usuarios implements Serializable {
 

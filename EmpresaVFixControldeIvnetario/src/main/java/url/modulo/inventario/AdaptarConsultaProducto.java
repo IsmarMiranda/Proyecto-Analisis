@@ -26,10 +26,10 @@ public class AdaptarConsultaProducto implements AdaptarConsulta{
     @Override
     public DefaultTableModel obtenerModelo() {
         
-        String[] columnas = {"Codigo","Categoria","Nombre","Existencia","Color","Modelo","Marca","Tipo","Precio","Precio May","Precio Clint","Descripcion"}; 
+        String[] columnas = {"Codigo","Categoria","Nombre","Existencia","Color","Modelo","Marca","Tipo","Precio","Descripcion"}; 
         this.modeloProductos = new DefaultTableModel(columnas,0);
         
-        Object[] producto = new Object[12];
+        Object[] producto = new Object[10];
         
         for (Producto p : this.productos) {
             
@@ -42,9 +42,7 @@ public class AdaptarConsultaProducto implements AdaptarConsulta{
             producto[6]= p.getMarca();
             producto[7]= p.getTipo();
             producto[8]= p.getPrecio();
-            producto[9]= p.getPrecioMayorista();
-            producto[10]= p.getPrecioCliente();
-            producto[11]=p.getDescripcion();
+            producto[9]=p.getDescripcion();
             
             modeloProductos.addRow(producto);
         }

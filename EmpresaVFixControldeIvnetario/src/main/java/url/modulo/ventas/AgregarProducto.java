@@ -20,17 +20,18 @@ public class AgregarProducto {
         this.producto=new Producto();
     }
     
-    public Producto actualizar(TableModel modelo,int seleccion,int cantidad){
+    public Producto actualizar(TableModel modeloFactura,int seleccion,int cantidad){
         
-        producto.setCodigo(modelo.getValueAt(seleccion,0).toString());
-        producto.setNombre(modelo.getValueAt(seleccion,2).toString());
-        producto.setExistencia((int)modelo.getValueAt(seleccion,3)+cantidad);
-        producto.setColor(modelo.getValueAt(seleccion,4).toString());
-        producto.setModelo(modelo.getValueAt(seleccion,5).toString());
-        producto.setMarca(modelo.getValueAt(seleccion,6).toString());
-        producto.setTipo(modelo.getValueAt(seleccion,7).toString());
-        producto.setPrecio((double)modelo.getValueAt(seleccion,8));
-        producto.setDescripcion(modelo.getValueAt(seleccion,9).toString());
+        producto.setCodigo(modeloFactura.getValueAt(seleccion,1).toString());
+        producto.setCategoriaprdID((int)modeloFactura.getValueAt(seleccion,2));
+        producto.setNombre(modeloFactura.getValueAt(seleccion,3).toString());
+        producto.setExistencia((int)modeloFactura.getValueAt(seleccion,4)+cantidad);
+        producto.setColor(modeloFactura.getValueAt(seleccion,5).toString());
+        producto.setModelo(modeloFactura.getValueAt(seleccion,6).toString());
+        producto.setMarca(modeloFactura.getValueAt(seleccion,7).toString());
+        producto.setTipo(modeloFactura.getValueAt(seleccion,8).toString());
+        producto.setPrecio((double)modeloFactura.getValueAt(seleccion,9));
+        producto.setDescripcion(modeloFactura.getValueAt(seleccion,10).toString());
         return this.producto;
     }
 }
