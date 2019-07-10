@@ -27,11 +27,14 @@ public class DialogClientes extends javax.swing.JDialog {
     public DialogClientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+<<<<<<< HEAD
         buttonGroup1.add(rbstar1);
         buttonGroup1.add(rbStar2);
         buttonGroup1.add(rbsStar3);
         buttonGroup1.add(rbStar4);
         buttonGroup1.add(rbStar5);
+=======
+>>>>>>> eacf9aa0b8bce86222d06acf4e195c59cef1c36f
         
     }
 
