@@ -24,6 +24,7 @@ public class DialogClientes extends javax.swing.JDialog {
     public DialogClientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
     }
 
     /**
