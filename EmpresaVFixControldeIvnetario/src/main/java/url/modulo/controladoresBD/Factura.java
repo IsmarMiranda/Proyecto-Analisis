@@ -39,6 +39,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Factura.findByTarjeta", query = "SELECT f FROM Factura f WHERE f.tarjeta = :tarjeta"),
     @NamedQuery(name = "Factura.findByFecha", query = "SELECT f FROM Factura f WHERE f.fecha = :fecha"),
     @NamedQuery(name = "Factura.findByEliminado", query = "SELECT f FROM Factura f WHERE f.eliminado = :eliminado"),
+    @NamedQuery(name = "Factura.findUltimaFactura", query = "SELECT MAX(f.idFactura) FROM Factura f "),
     @NamedQuery(name = "Factura.findByUsuariosId", query = "SELECT f FROM Factura f WHERE f.usuariosId = :usuariosId")})
 public class Factura implements Serializable {
 

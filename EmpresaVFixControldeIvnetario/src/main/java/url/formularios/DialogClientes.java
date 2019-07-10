@@ -11,12 +11,15 @@ import javax.persistence.EntityManager;
 import url.modulo.controladoresBD.Clientes;
 import url.controladores.ClientesJpaController;
 import url.conexionBD.Conexion;
+import url.modulo.inventario.FiltroBusqueda;
 
 /**
  *
  * @author IsmarMiranda
  */
 public class DialogClientes extends javax.swing.JDialog {
+    
+    
 
     /**
      * Creates new form DialogClientes
@@ -24,6 +27,12 @@ public class DialogClientes extends javax.swing.JDialog {
     public DialogClientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        buttonGroup1.add(rbstar1);
+        buttonGroup1.add(rbStar2);
+        buttonGroup1.add(rbsStar3);
+        buttonGroup1.add(rbStar4);
+        buttonGroup1.add(rbStar5);
+        
     }
 
     /**
@@ -35,6 +44,7 @@ public class DialogClientes extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         txtCodig = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -182,7 +192,7 @@ public class DialogClientes extends javax.swing.JDialog {
             }
         });
         jPanel1.add(rbStar5);
-        rbStar5.setBounds(930, 110, 30, 28);
+        rbStar5.setBounds(930, 120, 30, 21);
 
         rbstar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,6 +257,8 @@ public class DialogClientes extends javax.swing.JDialog {
 
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
        
+        FiltroBusqueda filtro = new FiltroBusqueda(txtBuscar.getText());
+        
 
     }//GEN-LAST:event_txtBuscarKeyTyped
 
@@ -275,7 +287,6 @@ public class DialogClientes extends javax.swing.JDialog {
 
     private void rbstar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbstar1ActionPerformed
         // TODO add your handling code here:
-       
     }//GEN-LAST:event_rbstar1ActionPerformed
 
     private void rbStar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbStar2ActionPerformed
@@ -305,6 +316,7 @@ public class DialogClientes extends javax.swing.JDialog {
         cliente.setCumpleanios(txtFechaNacimiento.getText());
         cliente.setEstrellas(0);
         actualizarCliente.edit(cliente);
+        em.close();
         } catch (Exception ex) {
             Logger.getLogger(DialogClientes.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -356,6 +368,7 @@ public class DialogClientes extends javax.swing.JDialog {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnIngresar1;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

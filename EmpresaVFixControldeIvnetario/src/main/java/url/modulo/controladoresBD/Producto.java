@@ -38,6 +38,8 @@ import javax.persistence.Table;
     @NamedQuery(name = "Producto.findByPrecioCliente", query = "SELECT p FROM Producto p WHERE p.precioCliente = :precioCliente"),
     @NamedQuery(name = "Producto.findByEliminado", query = "SELECT p FROM Producto p WHERE p.eliminado = :eliminado"),
     @NamedQuery(name = "Producto.findByImagen", query = "SELECT p FROM Producto p WHERE p.imagen = :imagen"),
+    @NamedQuery(name = "Producto.findByCantidad", query = "SELECT p.existencia FROM Producto AS p WHERE p.codigo=:codigo"),
+    @NamedQuery(name = "Producto.findByCantidad", query = "SELECT p.codigo FROM Producto AS p WHERE p.codigo=:codigo"),
     @NamedQuery(name = "Producto.findByCategoriaprdID", query = "SELECT p FROM Producto p WHERE p.categoriaprdID = :categoriaprdID")})
 public class Producto implements Serializable {
 

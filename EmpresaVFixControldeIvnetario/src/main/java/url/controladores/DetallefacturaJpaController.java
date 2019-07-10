@@ -22,17 +22,16 @@ import url.modulo.controladoresBD.Detallefactura;
  */
 public class DetallefacturaJpaController implements Serializable {
 
-    public DetallefacturaJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public DetallefacturaJpaController(EntityManager em) {
+        this.em = em;
     }
-    private EntityManagerFactory emf = null;
+    private EntityManager em = null;
 
     public EntityManager getEntityManager() {
-        return emf.createEntityManager();
+        return em;
     }
 
     public void create(Detallefactura detallefactura) {
-        EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
@@ -43,6 +42,22 @@ public class DetallefacturaJpaController implements Serializable {
                 em.close();
             }
         }
+    }
+    
+    public void insertarDetallesFactura(List<Detallefactura> detallefacturas){
+        
+        for (Detallefactura detalle : detallefacturas) {
+          
+            try {
+                em = getEntityManager();
+                em.getTransaction().begin();
+                em.persist(detalle);
+                em.getTransaction().commit();
+            } finally {
+            }
+            
+        }
+        
     }
 
     public void edit(Detallefactura detallefactura) throws NonexistentEntityException, Exception {

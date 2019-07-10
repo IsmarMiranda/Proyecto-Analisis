@@ -8,7 +8,6 @@ package url.controladores;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
@@ -22,17 +21,17 @@ import url.modulo.controladoresBD.Factura;
  */
 public class FacturaJpaController implements Serializable {
 
-    public FacturaJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public FacturaJpaController(EntityManager em) {
+        this.em = em;
     }
-    private EntityManagerFactory emf = null;
+    private EntityManager em = null;
 
     public EntityManager getEntityManager() {
-        return emf.createEntityManager();
+        return em;
     }
 
     public void create(Factura factura) {
-        EntityManager em = null;
+        
         try {
             em = getEntityManager();
             em.getTransaction().begin();
@@ -46,7 +45,7 @@ public class FacturaJpaController implements Serializable {
     }
 
     public void edit(Factura factura) throws NonexistentEntityException, Exception {
-        EntityManager em = null;
+      
         try {
             em = getEntityManager();
             em.getTransaction().begin();
@@ -69,7 +68,7 @@ public class FacturaJpaController implements Serializable {
     }
 
     public void destroy(Integer id) throws NonexistentEntityException {
-        EntityManager em = null;
+        
         try {
             em = getEntityManager();
             em.getTransaction().begin();
@@ -98,7 +97,7 @@ public class FacturaJpaController implements Serializable {
     }
 
     private List<Factura> findFacturaEntities(boolean all, int maxResults, int firstResult) {
-        EntityManager em = getEntityManager();
+       
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
             cq.select(cq.from(Factura.class));
@@ -114,7 +113,7 @@ public class FacturaJpaController implements Serializable {
     }
 
     public Factura findFactura(Integer id) {
-        EntityManager em = getEntityManager();
+       
         try {
             return em.find(Factura.class, id);
         } finally {
@@ -123,7 +122,7 @@ public class FacturaJpaController implements Serializable {
     }
 
     public int getFacturaCount() {
-        EntityManager em = getEntityManager();
+      
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
             Root<Factura> rt = cq.from(Factura.class);

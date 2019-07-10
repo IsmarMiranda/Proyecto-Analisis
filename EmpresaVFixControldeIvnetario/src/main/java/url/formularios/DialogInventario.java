@@ -12,6 +12,16 @@ import url.modulo.inventario.ResultadoBusquedaProducto;
 import url.modulo.controladoresBD.Producto;
 import url.controladores.ProductoJpaController;
 import url.conexionBD.Conexion;
+import url.modulo.inventario.AdaptarConsulta;
+import url.modulo.inventario.AdaptarConsultaProducto;
+import url.modulo.inventario.ConstruirConsultaProductos;
+import url.modulo.inventario.Consultas;
+import url.modulo.inventario.CrearConsulta;
+import url.modulo.inventario.IteradorDeProductos;
+import url.modulo.inventario.ObtenerConsulta;
+import url.modulo.inventario.RealizarConsulta;
+import url.modulo.inventario.RealizarConsultaProducto;
+import url.modulo.inventario.ColeccionDeProductos;
 
 /**
  *
@@ -42,12 +52,12 @@ public class DialogInventario extends javax.swing.JDialog {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         panelInventario = new javax.swing.JPanel();
+        cbTipoBusqueda = new javax.swing.JComboBox<>();
+        lbTotalProductos = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
+        txtBusqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableInventario = new javax.swing.JTable();
-        txtBuscarNombre1 = new javax.swing.JTextField();
-        txtBuscarCodigo1 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         btnActualiza = new javax.swing.JButton();
         lblTextura = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -87,6 +97,29 @@ public class DialogInventario extends javax.swing.JDialog {
         panelInventario.setBackground(new java.awt.Color(255, 255, 255));
         panelInventario.setLayout(null);
 
+        cbTipoBusqueda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        panelInventario.add(cbTipoBusqueda);
+        cbTipoBusqueda.setBounds(20, 80, 240, 30);
+
+        lbTotalProductos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbTotalProductos.setText("Q. ");
+        panelInventario.add(lbTotalProductos);
+        lbTotalProductos.setBounds(1300, 580, 100, 40);
+
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        panelInventario.add(btnBuscar);
+        btnBuscar.setBounds(270, 130, 120, 40);
+
+        txtBusqueda.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        panelInventario.add(txtBusqueda);
+        txtBusqueda.setBounds(20, 130, 240, 40);
+
         jTableInventario.setFont(new java.awt.Font("Calibri", 1, 15)); // NOI18N
         jTableInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -110,34 +143,6 @@ public class DialogInventario extends javax.swing.JDialog {
         panelInventario.add(jScrollPane1);
         jScrollPane1.setBounds(10, 270, 1590, 250);
 
-        txtBuscarNombre1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtBuscarNombre1KeyTyped(evt);
-            }
-        });
-        panelInventario.add(txtBuscarNombre1);
-        txtBuscarNombre1.setBounds(20, 190, 570, 40);
-
-        txtBuscarCodigo1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtBuscarCodigo1KeyTyped(evt);
-            }
-        });
-        panelInventario.add(txtBuscarCodigo1);
-        txtBuscarCodigo1.setBounds(20, 130, 570, 40);
-
-        jLabel17.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/buscar.png"))); // NOI18N
-        jLabel17.setText("BUSCAR NOMBRE");
-        panelInventario.add(jLabel17);
-        jLabel17.setBounds(610, 190, 160, 40);
-
-        jLabel15.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/buscar.png"))); // NOI18N
-        jLabel15.setText("BUSCAR CODIGO");
-        panelInventario.add(jLabel15);
-        jLabel15.setBounds(610, 130, 190, 40);
-
         btnActualiza.setBackground(new java.awt.Color(0, 0, 0));
         btnActualiza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/refresh.png"))); // NOI18N
         btnActualiza.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +156,7 @@ public class DialogInventario extends javax.swing.JDialog {
         lblTextura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/TEXTURA.jpg"))); // NOI18N
         lblTextura.setText("jLabel14");
         panelInventario.add(lblTextura);
-        lblTextura.setBounds(0, 0, 1630, 760);
+        lblTextura.setBounds(10, 0, 1630, 760);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -184,7 +189,6 @@ public class DialogInventario extends javax.swing.JDialog {
         categoria.setBounds(220, 80, 490, 40);
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("MODELO:");
         panelIngresarProducto.add(jLabel1);
         jLabel1.setBounds(110, 240, 90, 20);
@@ -192,13 +196,11 @@ public class DialogInventario extends javax.swing.JDialog {
         txtModelo.setBounds(220, 230, 490, 40);
 
         jLabel2.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CATEGORÍA:");
         panelIngresarProducto.add(jLabel2);
         jLabel2.setBounds(110, 90, 90, 20);
 
         jLabel3.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("MARCA:");
         panelIngresarProducto.add(jLabel3);
         jLabel3.setBounds(110, 340, 90, 20);
@@ -206,7 +208,6 @@ public class DialogInventario extends javax.swing.JDialog {
         txtMarca.setBounds(220, 330, 490, 40);
 
         jLabel4.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("MAYORISTA:");
         panelIngresarProducto.add(jLabel4);
         jLabel4.setBounds(110, 590, 90, 20);
@@ -214,7 +215,6 @@ public class DialogInventario extends javax.swing.JDialog {
         txtMayorista.setBounds(220, 580, 490, 40);
 
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("CÓDIGO");
         panelIngresarProducto.add(jLabel5);
         jLabel5.setBounds(110, 140, 90, 20);
@@ -222,7 +222,6 @@ public class DialogInventario extends javax.swing.JDialog {
         txtCodigo.setBounds(220, 130, 490, 40);
 
         jLabel6.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("NOMBRE:");
         panelIngresarProducto.add(jLabel6);
         jLabel6.setBounds(110, 190, 90, 20);
@@ -230,7 +229,6 @@ public class DialogInventario extends javax.swing.JDialog {
         txtNombre.setBounds(220, 180, 490, 40);
 
         jLabel7.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("TIPO:");
         panelIngresarProducto.add(jLabel7);
         jLabel7.setBounds(110, 390, 90, 20);
@@ -238,7 +236,6 @@ public class DialogInventario extends javax.swing.JDialog {
         txtTipo.setBounds(220, 380, 490, 40);
 
         jLabel8.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("DESCRIPCIÓN:");
         panelIngresarProducto.add(jLabel8);
         jLabel8.setBounds(110, 440, 110, 20);
@@ -248,7 +245,6 @@ public class DialogInventario extends javax.swing.JDialog {
         txtClienteFrec.setBounds(220, 630, 490, 40);
 
         jLabel10.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("EXISTENCIA:");
         panelIngresarProducto.add(jLabel10);
         jLabel10.setBounds(110, 490, 90, 20);
@@ -256,7 +252,6 @@ public class DialogInventario extends javax.swing.JDialog {
         txtExistencia.setBounds(220, 480, 490, 40);
 
         jLabel11.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("PRECIO:");
         panelIngresarProducto.add(jLabel11);
         jLabel11.setBounds(110, 540, 90, 20);
@@ -273,7 +268,6 @@ public class DialogInventario extends javax.swing.JDialog {
         labelIcon.setBounds(980, 80, 510, 430);
 
         jLabel13.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("CLIENTE FREC:");
         panelIngresarProducto.add(jLabel13);
         jLabel13.setBounds(110, 640, 110, 20);
@@ -292,7 +286,6 @@ public class DialogInventario extends javax.swing.JDialog {
         txtColor.setBounds(220, 280, 490, 40);
 
         jLabel9.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("COLOR:");
         panelIngresarProducto.add(jLabel9);
         jLabel9.setBounds(110, 290, 90, 20);
@@ -307,7 +300,6 @@ public class DialogInventario extends javax.swing.JDialog {
         panelIngresarProducto.add(btnActualizar);
         btnActualizar.setBounds(1230, 520, 230, 50);
 
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/url/imagenes/TEXTURA.jpg"))); // NOI18N
         jLabel12.setText("jLabel12");
         panelIngresarProducto.add(jLabel12);
@@ -354,20 +346,6 @@ public class DialogInventario extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtBuscarNombre1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarNombre1KeyTyped
-        // TODO add your handling code here:
-       
-
-    }//GEN-LAST:event_txtBuscarNombre1KeyTyped
-
-    private void txtBuscarCodigo1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarCodigo1KeyTyped
-        // TODO add your handling code here:
-        FiltroBusqueda filtro  =new FiltroBusqueda(txtBuscarCodigo1.getText());
-        //Busqueda resultado = new ResultadoBusquedaProducto(em);
-        //jTableInventario.setModel(resultado.ResultadoBusqueda(filtro));
-       
-    }//GEN-LAST:event_txtBuscarCodigo1KeyTyped
-
     private void labelIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelIconMouseClicked
 
        
@@ -377,7 +355,7 @@ public class DialogInventario extends javax.swing.JDialog {
         // TODO add your handling code here:
         EntityManager em = Conexion.obtenerConexion();
         Producto producto = new Producto();
-        ProductoJpaController insetarProducto = new ProductoJpaController(null);
+        ProductoJpaController insetarProducto = new ProductoJpaController(em);
         producto.setCategoriaprdID(categoria.getSelectedIndex());
         producto.setCodigo(txtCodigo.getText());
         producto.setNombre(txtNombre.getText());
@@ -405,6 +383,24 @@ public class DialogInventario extends javax.swing.JDialog {
         // TODO add your handling code here:
     
     }//GEN-LAST:event_btnActualizaActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        EntityManager em = Conexion.obtenerConexion();
+        CrearConsulta crearConsulta = new ConstruirConsultaProductos(cbTipoBusqueda.getSelectedItem().toString());
+        ObtenerConsulta obtenerConsulta = new ObtenerConsulta(crearConsulta);
+        obtenerConsulta.crearConsulta();
+        Consultas consulta = obtenerConsulta.obtenerConsulta();
+        FiltroBusqueda filtro = new FiltroBusqueda(txtBusqueda.getText());
+        RealizarConsultaProducto realizarConsulta = new RealizarConsultaProducto(filtro);
+        realizarConsulta.consultar(consulta, em);
+        AdaptarConsulta adaptarConsulta = new  AdaptarConsultaProducto(realizarConsulta.obtenerProductos());
+        IteradorDeProductos iteradorDeProductos = new ColeccionDeProductos(realizarConsulta.obtenerProductos());
+        em.close();
+        jTableInventario.setModel(adaptarConsulta.obtenerModelo());
+        iteradorDeProductos.calcularTotal();
+        lbTotalProductos.setText("Q."+iteradorDeProductos.obtenerTotal());
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     public void limpiar(){
         txtCodigo.setText("");
@@ -455,15 +451,15 @@ public class DialogInventario extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualiza;
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JComboBox categoria;
+    private javax.swing.JComboBox<String> cbTipoBusqueda;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -478,11 +474,11 @@ public class DialogInventario extends javax.swing.JDialog {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTableInventario;
     private javax.swing.JLabel labelIcon;
+    private javax.swing.JLabel lbTotalProductos;
     private javax.swing.JLabel lblTextura;
     private javax.swing.JPanel panelIngresarProducto;
     private javax.swing.JPanel panelInventario;
-    private javax.swing.JTextField txtBuscarCodigo1;
-    private javax.swing.JTextField txtBuscarNombre1;
+    private javax.swing.JTextField txtBusqueda;
     private javax.swing.JTextField txtClienteFrec;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtColor;
