@@ -1,0 +1,55 @@
+<argo version="6">
+  <documentation>
+    <authorname></authorname>
+    <authoremail></authoremail>
+    <version>0.34</version>
+    <description>
+      
+    </description>
+  </documentation>
+  <settings>
+    <notationlanguage>UML 1.4</notationlanguage>
+    <showboldnames>false</showboldnames>
+    <useguillemots>false</useguillemots>
+    <showassociationnames>true</showassociationnames>
+    <showvisibility>false</showvisibility>
+    <showmultiplicity>false</showmultiplicity>
+    <showinitialvalue>false</showinitialvalue>
+    <showproperties>false</showproperties>
+    <showtypes>true</showtypes>
+    <showstereotypes>false</showstereotypes>
+    <showsingularmultiplicities>true</showsingularmultiplicities>
+    <defaultshadowwidth>1</defaultshadowwidth>
+    <hidebidirectionalarrows>true</hidebidirectionalarrows>    
+    <fontname>Dialog</fontname>
+    <fontsize>12</fontsize>
+    <defaultstereotypeview>0</defaultstereotypeview>
+    <activediagram>Clientes</activediagram>
+  </settings>
+  <searchpath href="PROJECT_DIR" />
+  <members>
+    <member type="profile"
+            name="DiagramasCasosDeUso1_profile.profile" />
+    <member type="xmi"
+            name="DiagramasCasosDeUso1.xmi" />
+    <member type="pgml"
+            name="DiagramasCasosDeUso1_ModuloVentas.pgml"
+            diagramclass="org.argouml.uml.diagram.use_case.ui.UMLUseCaseDiagram"
+            diagramname="Modulo Ventas" />
+    <member type="pgml"
+            name="DiagramasCasosDeUso1_ModuloInventario.pgml"
+            diagramclass="org.argouml.uml.diagram.use_case.ui.UMLUseCaseDiagram"
+            diagramname="Modulo Inventario" />
+    <member type="pgml"
+            name="DiagramasCasosDeUso1_ModuloReparaciones.pgml"
+            diagramclass="org.argouml.uml.diagram.use_case.ui.UMLUseCaseDiagram"
+            diagramname="Modulo Reparaciones" />
+    <member type="pgml"
+            name="DiagramasCasosDeUso1_UseCaseDiagram.pgml"
+            diagramclass="org.argouml.uml.diagram.use_case.ui.UMLUseCaseDiagram"
+            diagramname="Clientes" />
+    <member type="todo"
+            name="DiagramasCasosDeUso1.todo" />
+  </members>
+  <historyfile name="" />
+</argo>
